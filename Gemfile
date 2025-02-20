@@ -68,7 +68,7 @@ group :development do
 end
 
 group :test do
-  # Uses system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  # Uses system testings [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
 end
