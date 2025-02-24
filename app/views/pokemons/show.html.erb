@@ -1,0 +1,22 @@
+<h2>Attraper ce Pokémon !</h2>
+
+<%= form_with model: Pokeball.new, url: pokemon_pokeballs_path(@pokemon), local: true do |f| %>
+  <div>
+    <%= f.label :trainer_id, "Choisir un dresseur :" %>
+    <%= f.collection_select :trainer_id, Trainer.all, :id, :name, prompt: "Sélectionner un dresseur" %>
+  </div>
+
+  <div>
+    <%= f.label :location, "Lieu de capture :" %>
+    <%= f.text_field :location, placeholder: "Ex: Forêt de Jade" %>
+  </div>
+
+  <div>
+    <%= f.label :caught_on, "Date de capture :" %>
+    <%= f.date_field :caught_on %>
+  </div>
+
+  <div>
+    <%= f.submit "Capturer !", class: "btn" %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+<h1>Liste des Dresseurs</h1>
+
+<div class="trainers-list">
+  <% @trainers.each do |trainer| %>
+    <div class="trainer-card">
+      <% if trainer.photo.attached? %>
+        <%= cl_image_tag trainer.photo.key, width: 150, height: 150, crop: :fill %>
+      <% end %>
+      <h2><%= trainer.name %></h2>
+      <p>Âge: <%= trainer.age %> ans</p>
+    </div>
+  <% end %>
+</div>

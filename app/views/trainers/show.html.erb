@@ -1,0 +1,19 @@
+<h2>Pokémon capturés :</h2>
+
+<div class="trainer-pokemon-list">
+  <% @trainer.pokemons.each do |pokemon| %>
+    <div class="pokemon-card">
+      <h3><%= pokemon.name %></h3>
+      <p>Type: <%= pokemon.element_type.capitalize %></p>
+      <% if pokemon.photo.attached? %>
+        <%= cl_image_tag pokemon.photo.key, width: 150, height: 150, crop: :fill %>
+      <% end %>
+      <br>
+      <%= link_to "Voir le profil", pokemon_path(pokemon), class: "btn" %>
+    </div>
+  <% end %>
+</div>
+
+<p>
+  <%= link_to "Retour à la liste des dresseurs", trainers_path, class: "btn" %>
+</p>

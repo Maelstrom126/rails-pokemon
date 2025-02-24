@@ -1,0 +1,15 @@
+<h1>Pokédex</h1>
+
+<div class="pokedex">
+  <% @pokemons.each do |pokemon| %>
+    <div class="pokemon-card">
+      <h2><%= pokemon.name %></h2>
+      <p>Type: <%= pokemon.element_type.capitalize %></p>
+      <% if pokemon.photo.attached? %>
+        <%= cl_image_tag pokemon.photo.key, width: 150, height: 150, crop: :fill %>
+      <% end %>
+      <br>
+      <%= link_to "Voir plus", pokemon_path(pokemon), class: "btn" %>
+    </div>
+  <% end %>
+</div>
